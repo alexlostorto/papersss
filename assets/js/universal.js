@@ -25,13 +25,13 @@ TABLE OF CONTENTS
     |
     ------------------------------------------------------------*/
 
+    let toggleButton;
+    let resourcesButton;
+    let resourcesLinks;
+    let subcategoryButton;
+    let navbarItems;
     const homePage = document.querySelector('.body-container');
     const bodyElement = document.querySelector('body');
-    const toggleButton = document.querySelector('.toggle-button');
-    const resourcesButton = document.querySelector('.resources-button');
-    const resourcesLinks = document.querySelector('.nav-resources');
-    const subcategoryButton = document.querySelector('.subcategory-button');
-    const navbarItems = document.querySelector('.navbar-items');
     const cursor = document.querySelector('.custom-cursor');
     const cursorInner = document.querySelector('.custom-cursor.inner');
     const cursorOuter = document.querySelector('.custom-cursor.outer');
@@ -45,8 +45,8 @@ TABLE OF CONTENTS
         | 2.1 ESSENTIAL
         |
         ------------------------------------------------------------*/
-    
-    const sleep = ms => {
+
+    function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
     
@@ -59,6 +59,16 @@ TABLE OF CONTENTS
     function round(number, decimalPlaces) {
         return Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces)
     }
+
+    async function waitUntilLoaded(selector) {
+        let trials = 0;
+        while (document.querySelector(selector) === null && trials <= 10) {
+            await sleep(100);
+            trials ++;
+        }
+
+        return document.querySelector(selector);
+    }
     
         /*------------------------------------------------------------
         |
@@ -68,7 +78,7 @@ TABLE OF CONTENTS
     
     async function liveViews() {
         try {
-            let response = await(await (fetch("https://api.countapi.xyz/hit/alexlostorto.github.io/magic-note"))).json();
+            let response = await(await (fetch("https://api.countapi.xyz/hit/alexlostorto.github.io/papersss"))).json();
             visitsCounter = document.getElementById('visits');
         
             if (visitsCounter !== null) {
@@ -133,25 +143,35 @@ TABLE OF CONTENTS
         | 3.1 HAMBURGER FUNCTIONALITY
         |
         ------------------------------------------------------------*/
-    
-    if (toggleButton !== null) {
-        toggleButton.addEventListener('click', () => {
-            navbarItems.classList.toggle('active');
-        })
+
+    async function enableNavbar() {
+        toggleButton = await waitUntilLoaded('.toggle-button');
+        resourcesButton = await waitUntilLoaded('.resources-button');
+        resourcesLinks = await waitUntilLoaded('.nav-resources');
+        subcategoryButton = await waitUntilLoaded('.subcategory-button');
+        navbarItems = await waitUntilLoaded('.navbar-items');
+
+        if (toggleButton !== null) {
+            toggleButton.addEventListener('click', () => {
+                navbarItems.classList.toggle('active');
+            })
+        }
+        
+        if (resourcesButton !== null) {
+            resourcesButton.addEventListener('click', () => {
+                resourcesLinks.classList.toggle('active');
+            })
+        }
+        
+        if (subcategoryButton !== null) {
+            subcategoryButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                subcategoryButton.classList.toggle('active');
+            })
+        }
     }
-    
-    if (resourcesButton !== null) {
-        resourcesButton.addEventListener('click', () => {
-            resourcesLinks.classList.toggle('active');
-        })
-    }
-    
-    if (subcategoryButton !== null) {
-        subcategoryButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            subcategoryButton.classList.toggle('active');
-        })
-    }
+
+    enableNavbar();
     
     /*--------------------------------------------------------------
     4.0 CUSTOM CURSOR
