@@ -95,9 +95,11 @@ function filterFunction() {
     ------------------------------------------------------------*/
 
 const searchButton = document.querySelector('#search-button');
-const typeButton = document.querySelector('.type.switch input');
-const tierButton = document.querySelector('.tier.switch input');
-const switches = [typeButton, tierButton];
+const typeInput = document.querySelector('.type.switch input');
+const tierInput = document.querySelector('.tier.switch input');
+const typeSwitch = document.querySelector('.type.switch');
+const tierSwitch = document.querySelector('.tier.switch');
+const switches = [[typeSwitch, typeInput], [tierSwitch, tierInput]];
 
     /*------------------------------------------------------------
     |
@@ -126,13 +128,13 @@ function getFileData() {
     FILE.month = document.querySelector('#month').value.toLowerCase();
     FILE.paper = document.querySelector('#paper').value;
 
-    if (typeButton.checked) {
+    if (typeInput.checked) {
           FILE.type = 'W-MS';
     } else {
           FILE.type = 'QP';
     }
     
-    if (tierButton.checked) {
+    if (typeInput.checked) {
           FILE.tier = 'F';
     } else {
           FILE.tier = 'H';
@@ -160,35 +162,17 @@ function loadPDF() {
 searchButton.addEventListener('click', loadPDF);
 
 switches.forEach((element) => {
-    element.addEventListener('change', () => {
-        const labels = element.querySelectorAll('span');
+    element[0].addEventListener('change', () => {
+        const labels = element[0].querySelectorAll('span');
+        console.log(element)
+        console.log(labels);
 
-        if (element.checked) {
-            labels[1].classList.add('active');
+        if (element[1].checked) {
+            labels[2].classList.add('active');
             labels[0].classList.remove('active');
         } else {
             labels[0].classList.add('active');
-            labels[1].querySelector('.switch .mark-scheme').classList.remove('active');
+            labels[2].classList.remove('active');
         }
     })
-})
-
-typeButton.addEventListener('change', () => {
-    if (typeButton.checked) {
-        document.querySelector('.switch .mark-scheme').classList.add('active');
-        document.querySelector('.switch .question-paper').classList.remove('active');
-    } else {
-        document.querySelector('.switch .question-paper').classList.add('active');
-        document.querySelector('.switch .mark-scheme').classList.remove('active');
-    }
-})
-
-tierButton.addEventListener('change', () => {
-    if (tierButton.checked) {
-        document.querySelector('.switch .foundation').classList.add('active');
-        document.querySelector('.switch .higher').classList.remove('active');
-    } else {
-        document.querySelector('.switch .higher').classList.add('active');
-        document.querySelector('.switch .foundation').classList.remove('active');
-    }
 })
