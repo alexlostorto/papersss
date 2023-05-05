@@ -97,6 +97,7 @@ function filterFunction() {
 const searchButton = document.querySelector('#search-button');
 const typeButton = document.querySelector('.type.switch input');
 const tierButton = document.querySelector('.tier.switch input');
+const switches = [typeButton, tierButton];
 
     /*------------------------------------------------------------
     |
@@ -147,7 +148,7 @@ function loadPDF() {
     getFileData();
     let url = getSource();
     document.querySelector('body').innerHTML = HTML;
-    document.querySelector('embed').src =url;
+    document.querySelector('embed').src = url;
 }
 
     /*------------------------------------------------------------
@@ -157,6 +158,20 @@ function loadPDF() {
     ------------------------------------------------------------*/
 
 searchButton.addEventListener('click', loadPDF);
+
+switches.forEach((element) => {
+    element.addEventListener('change', () => {
+        const labels = element.querySelectorAll('span');
+
+        if (element.checked) {
+            labels[1].classList.add('active');
+            labels[0].classList.remove('active');
+        } else {
+            labels[0].classList.add('active');
+            labels[1].querySelector('.switch .mark-scheme').classList.remove('active');
+        }
+    })
+})
 
 typeButton.addEventListener('change', () => {
     if (typeButton.checked) {
