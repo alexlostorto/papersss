@@ -421,6 +421,10 @@ background: var(--dark);
     |
     ------------------------------------------------------------*/
 
+.dropdowns {
+    margin-bottom: 3rem;
+}
+
 .dropdown > div {
     display: flex;
     flex-direction: column;
@@ -569,12 +573,12 @@ input:checked + .slider::before {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 5rem;
     gap: 1rem;
 }
 
 .switches {
     flex-direction: column;
+    margin-bottom: 4rem;
 }
 
     /*------------------------------------------------------------
@@ -1010,5 +1014,11 @@ input:checked + .slider::before {
 
     .footer p {
         font-size: smaller;
+    }
+}
+
+@media (max-height: 600px) {
+    .form {
+        padding-top: 6rem;
     }
 }
