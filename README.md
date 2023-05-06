@@ -14,14 +14,14 @@ Click [**here**](https://alexlostorto.github.io/papersss/) to visit the **Papers
 
 ```python
 # Available past papers
-class PastPapers: 
-  def fetch_subjects(self): 
+class PastPapers:
+  def fetch_subjects(self):
     return ["Mathematics"]
 
-  def fetch_exam_boards(self): 
+  def fetch_exam_boards(self):
     return ["AQA"]
-    
-  def fetch_type(self): 
+
+  def fetch_type(self):
     return ["Question paper", "Mark scheme"]
 ```
 
@@ -30,6 +30,12 @@ class PastPapers:
 1. Visit [**Papersss**](https://alexlostorto.github.io/papersss/) and fill out each field.
 2. Click _'Search'_ to retrieve the PDF.
 3. Star the repo 😄
+
+## 📋 Form
+
+<p align="center">
+  <img width="100%" src="https://github.com/alexlostorto/papersss/raw/main/.github/form.png">
+</p>
 
 ## 📜 Credits
 
