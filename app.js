@@ -27,9 +27,11 @@ TABLE OF CONTENTS
 const headerText = document.querySelector('.header-text');
 const headerDescription = document.querySelector('.header-description');
 const headerArrow = document.querySelector('.arrow');
+const form = document.querySelector('.form');
 
-fadeIn(headerText, 500);
+fadeIn(headerText, 200);
 fadeIn(headerDescription, 800);
+fadeIn(form, 200);
 
 if (window.innerWidth < 1000) {
     fadeIn(headerArrow, 1000);
