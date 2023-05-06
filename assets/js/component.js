@@ -1,5 +1,5 @@
 async function getComponent(name) {
-	let component = await fetch(`/assets/components/${name}.html`);
+	let component = await fetch(`assets/components/${name}.html`);
 
 	return component.text()
 }
