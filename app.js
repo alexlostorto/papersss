@@ -136,7 +136,7 @@ function getFileData() {
           FILE.type = 'QP';
     }
     
-    if (typeInput.checked) {
+    if (tierInput.checked) {
           FILE.tier = 'F';
     } else {
           FILE.tier = 'H';
