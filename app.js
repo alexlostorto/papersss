@@ -46,9 +46,9 @@ if (window.innerWidth < 1000) {
 const dropdowns = document.querySelectorAll('.dropdown');
 
 dropdowns.forEach((dropdown) => {
-    const anchors = dropdown.querySelectorAll('a');
-    anchors.forEach((anchor) => {
-        anchor.addEventListener('click', updateDropdown);
+    const options = dropdown.querySelectorAll('span');
+    options.forEach((options) => {
+        options.addEventListener('click', updateDropdown);
     })
 })
 
