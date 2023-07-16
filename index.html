@@ -42,7 +42,7 @@
           <p class="header-description fade">Finding past papers has never been easier!</p>
         </header>
         <div class="arrow bounce fade">
-          <a class="fa fa-arrow-down fa-2x" href="#"></a>
+          <a class="fa fa-arrow-down fa-2x" href="#" aria-label="Arrow down"></a>
         </div>
       </section>
 
@@ -53,7 +53,7 @@
           <div class="dropdown">
             <div>
               <label for="columns">Year</label>
-              <input autocomplete="off" type="text" id="year" onkeyup="filterFunction()" />
+              <input autocomplete="off" type="text" id="year" onkeyup="filterFunction()" aria-label="Year" />
               <div class="dropdown-content">
                 <span>2017</span>
                 <span>2018</span>
@@ -69,7 +69,7 @@
           <div class="dropdown">
             <div>
               <label for="columns">Month</label>
-              <input autocomplete="off" type="text" id="month" onkeyup="filterFunction()" />
+              <input autocomplete="off" type="text" id="month" onkeyup="filterFunction()" aria-label="Month" />
               <div class="dropdown-content">
                 <span>November</span>
                 <span>June</span>
@@ -81,7 +81,7 @@
           <div class="dropdown">
             <div>
               <label for="columns">Paper</label>
-              <input autocomplete="off" type="text" id="paper" onkeyup="filterFunction()" />
+              <input autocomplete="off" type="text" id="paper" onkeyup="filterFunction()" aria-label="Paper number" />
               <div class="dropdown-content">
                 <span>1</span>
                 <span>2</span>
@@ -95,7 +95,7 @@
           <div class="type switch">
             <span class="active question-paper check-text">Question paper</span>
             <label>
-              <input type="checkbox" />
+              <input type="checkbox" aria-label="Mark scheme" />
               <span class="slider round"></span>
             </label>
             <span class="mark-scheme check-text">Mark scheme</span>
@@ -103,7 +103,7 @@
           <div class="tier switch">
             <span class="active higher check-text">Higher</span>
             <label>
-              <input type="checkbox" />
+              <input type="checkbox" aria-label="Foundation paper" />
               <span class="slider round"></span>
             </label>
             <span class="foundation check-text">Foundation</span>
