@@ -82,7 +82,7 @@ async function liveViews() {
         const data = {
             headers: { "X-Api-Key": "auvqqz2erOJhY7Mx71BllA==FnbYTNzw3EzrDfcB" }
         };
-        const response = await fetch("https://api.api-ninjas.com/v1/counter?id=portfolio.website&hit=true", data);
+        const response = await fetch("https://api.api-ninjas.com/v1/counter?id=papersss&hit=true", data);
         const jsonData = await response.json();
         const count = jsonData.value;
 
